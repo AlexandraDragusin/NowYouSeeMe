@@ -1,0 +1,109 @@
+// Copyright (C) 2022 Dragusin Daniela-Alexandra (311CA / 2021-2022)
+
+~~ NOW YOU SEE ME
+
+~~ Description of the functionality
+
+In the realization of the project, 3 types of structures were used:
+	->	A structure that (card_t) holds the value and symbol of a card
+
+	->	A generic node-type structure that will represent a pack of cards or a 				single card. Accessing the previous/next node is allowed.
+		The information contained in this is, in the case of packages, a list of 			books, and in the case of a single book, a book-type structure.
+
+	->	A generic list structure representing a list of packages
+		or one of books
+
+For the commands that receive as parameters the index of the package or the book,
+two specific functions were used to verify their correctness.
+
+ADD_DECK and ADD_CARDS commands:
+	->	Both functions use an auxiliary function (add_cart) designed to add a
+		single card in a specified package, in a specified position.
+
+	->	The ADD_DECK function adds a new package to the end of the package list.
+		A new list is created, in which a number of books are inserted
+		received as a parameter. The package is created and added to the final 				position.
+
+	->	The ADD_CARDS function adds a number of cards to a certain pack.
+		Next, read the respective number of books, check
+		the correctness of each one, and if so, the book is added
+		in the package with the specified index.
+
+DEL_DECK and DEL_CARD commands:
+	->	The DEL_DECK function deletes a package from the list of packages.
+		It handles the case when the package is added at the beginning/middle/
+		end of package list.
+		After completion, the memory occupied by the package is released.
+
+	->	The DEL_CARD function deletes a card from a certain position of a pack.
+		The memory occupied by the book is freed.
+		If, after deleting the book, the package remains empty, it is deleted
+	 	and the memory occupied by it is freed.
+
+SHOW_DECK and SHOW_ALL commands:
+	->	The SHOW_DECK function receives as a parameter an index of a deck and
+		shows the cards that it contains.
+
+	->	The SHOW_ALL function displays the content of all existing decks.
+		It use the previous function.
+
+DECK_NUMBER command:
+	->	Displays the number of the existing decks.
+
+DECK_LEN command:
+	->	Displays the number of cards that exists in a deck.
+
+SHUFFLE_DECK command:
+	->	Functie ce inverseaza prima si a doua jumatate a pachetului de carti.
+
+	->	Este creata o legatura intre ultima si prima carte, astfel incat
+		cartea urmatoare ultimei este prima si cea anterioara primei este
+		ultima.
+
+	->	Este rupta legatura dintre cartile de la mijlocul pachetului.
+
+Comanda REVERSE_DECK:
+	->	The function reverses the first and second half of the deck of cards.
+
+	->	The content of the last book is retained, it is deleted and then
+		added to the beginning list a new book with the same information
+		as the one that was deleted.
+
+	->	The algorithm is repeated until the first card reaches the last
+		position.
+
+MERGE_DECKS command:
+	->	Function that combine two packs by adding one card from each, row
+		by row. A new list is created in which one card from each pack
+		is added.
+
+	->	If any deck remains without cards, continue by adding cards from the
+		package that is not empty.
+
+	->	Packages that have been combined are deleted. The new package is
+		added to the end of the package list.
+
+SPLIT_DECK command:
+	->	Divides a certain package into two other packages according to a
+		given index.
+
+	->	If the package is divided according to a null index or equal to
+		that of to the last item in the list, nothing changes. Otherwise,
+		a new list containing the books from the index is created specified
+		until the end of the package. The new package is created.
+
+	->	The cards that were added to the new pack are deleted from the
+	 	old one. The new package is added to the list of packages
+		immediately after the first one.
+
+SORT_DECK command:
+	->	Sort a pack of cards in ascending order using the bubble method,
+		using an auxiliary interchange function.
+
+	->	The books are sorted according to their value, and in case of
+		equality, they are sorted by symbol using a lexicographic
+		comparison functions.
+
+EXIT command:
+	->	Frees all the memory used by packages and books and stops
+		program execution.
