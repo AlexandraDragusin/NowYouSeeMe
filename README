@@ -7,8 +7,10 @@
 In the realization of the project, 3 types of structures were used:
 	->	A structure that (card_t) holds the value and symbol of a card
 
-	->	A generic node-type structure that will represent a pack of cards or a 				single card. Accessing the previous/next node is allowed.
-		The information contained in this is, in the case of packages, a list of 			books, and in the case of a single book, a book-type structure.
+	->	A generic node-type structure that will represent a pack of cards or a 				
+		single card. Accessing the previous/next node is allowed.
+		The information contained in this is, in the case of packages, a list of 			
+		books, and in the case of a single book, a book-type structure.
 
 	->	A generic list structure representing a list of packages
 		or one of books
@@ -22,7 +24,8 @@ ADD_DECK and ADD_CARDS commands:
 
 	->	The ADD_DECK function adds a new package to the end of the package list.
 		A new list is created, in which a number of books are inserted
-		received as a parameter. The package is created and added to the final 				position.
+		received as a parameter. The package is created and added to the final 				
+		position.
 
 	->	The ADD_CARDS function adds a number of cards to a certain pack.
 		Next, read the respective number of books, check
